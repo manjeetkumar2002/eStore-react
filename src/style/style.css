@@ -1,0 +1,16 @@
+#hero-heading{
+    font-size: 3.7rem;
+    margin-top: 20px;
+}
+#hero-heading span{
+    color:  #0a4db8;
+    display: inline-block;
+}
+
+#hero-heading span::after{
+    content:"";
+    background-color: #ebf2fa;
+    display: block;
+    /* width: 100px; */
+    height: 5px;
+}

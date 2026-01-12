@@ -1,0 +1,113 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Summer Collection Dress",
+      "description": "Beautiful summer dress made from breathable cotton fabric",
+      "price": 89.99,
+      "category": "Clothing",
+      "image": "./images/product-11.webp",
+      "rating": 4.5,
+      "stock": 15,
+      "colors": ["Blue", "White", "Pink"],
+      "sizes": ["S", "M", "L", "XL"],
+      "featured": true
+    },
+    {
+      "id": 2,
+      "name": "Casual Wear T-Shirt",
+      "description": "Comfortable casual t-shirt for everyday wear",
+      "price": 35.65,
+      "category": "Clothing",
+      "image": "./images/product1.jpg",
+      "rating": 4.0,
+      "stock": 25,
+      "colors": ["Black", "White", "Gray"],
+      "sizes": ["S", "M", "L"],
+      "featured": true
+    },
+    {
+      "id": 3,
+      "name": "Leather Handbag",
+      "description": "Genuine leather handbag with multiple compartments",
+      "price": 65.32,
+      "category": "Accessories",
+      "image": "./images/hero-floating-img2.webp",
+      "rating": 4.0,
+      "stock": 8,
+      "colors": ["Brown", "Black"],
+      "featured": false
+    },
+    {
+      "id": 4,
+      "name": "Premium Watch",
+      "description": "Luxury watch with leather strap",
+      "price": 54.65,
+      "category": "Accessories",
+      "image": "./images/product-4.webp",
+      "rating": 5.0,
+      "stock": 5,
+      "colors": ["Silver", "Gold"],
+      "featured": true
+    },
+    {
+      "id": 5,
+      "name": "Wireless Headphones",
+      "description": "Noise-cancelling wireless headphones",
+      "price": 199.99,
+      "category": "Electronics",
+      "image": "./images/product3.webp",
+      "rating": 4.2,
+      "stock": 12,
+      "colors": ["Black", "White"],
+      "featured": false
+    },
+    {
+      "id": 6,
+      "name": "Smart Watch",
+      "description": "Fitness tracker with heart rate monitor",
+      "price": 149.99,
+      "category": "Electronics",
+      "image": "./images/product-7.webp",
+      "rating": 4.3,
+      "stock": 18,
+      "colors": ["Black", "Blue"],
+      "featured": true
+    },
+    {
+      "id": 7,
+      "name": "Sunglasses",
+      "description": "UV protection polarized sunglasses",
+      "price": 45.99,
+      "category": "Accessories",
+      "image": "./images/product-5.webp",
+      "rating": 4.1,
+      "stock": 30,
+      "colors": ["Black", "Brown", "Blue"],
+      "featured": false
+    },
+    {
+      "id": 8,
+      "name": "Running Shoes",
+      "description": "Lightweight running shoes with cushioning",
+      "price": 79.99,
+      "category": "Clothing",
+      "image": "./images/product-8.webp",
+      "rating": 4.4,
+      "stock": 22,
+      "colors": ["White", "Black", "Blue"],
+      "sizes": ["7", "8", "9", "10", "11"],
+      "featured": true
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "productId": 1,
+      "user": "John Doe",
+      "rating": 5,
+      "comment": "Great quality! Fits perfectly.",
+      "date": "2024-01-15"
+    }
+  ]
+}
