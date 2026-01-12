@@ -1,5 +1,5 @@
-import ProductCard from "./components/ProductCard"
-import { useProductContext } from "./context/productContext"
+import ProductCard from "./ProductCard"
+import { useProductContext } from "../context/productContext"
 
 const Products = () => {
   const {products} = useProductContext()
