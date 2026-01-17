@@ -1,9 +1,186 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useProductContext } from "../context/productContext";
+import { useParams } from "react-router";
+import PageNavigation from "./PageNavigation";
+import ProductsCarousel from "./ProductsCarousel";
+import Rating from "../Helper/Rating";
+import { BiFontSize } from "react-icons/bi";
+import MyImage from "./MyImage";
 
+const API = "http://localhost:3001";
 const SingleProduct = () => {
-  return (
-    <div>SingleProduct</div>
-  )
-}
+  const { singleProduct, getSingleProduct, isLoading } = useProductContext();
+  const {
+    name,
+    description,
+    price,
+    category,
+    images = [],
+    rating,
+    stock,
+    colors = [],
+    sizes = [],
+  } = singleProduct;
+  const [currColor, setCurrColor] = useState(colors[0]?.code || "");
+  const [currSize, setCurrSize] = useState(sizes[0] || "");
+  const [currQuantity,setCurrQuantity] = useState(1)
+  console.log(sizes);
+  const { id } = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    getSingleProduct(API + `/products/${id}`);
+  }, []);
 
-export default SingleProduct
+  if (isLoading) {
+    return <h3>Loading....</h3>;
+  }
+
+  const decrementQuantity = ()=>{
+    if (currQuantity>1)
+    setCurrQuantity(currQuantity-1)
+  }
+
+  const incrementQuantity = ()=>{
+    if (currQuantity<stock)
+      setCurrQuantity(currQuantity+1)
+  }
+  return (
+    <>
+      <PageNavigation pageName={"ProductDetails"} />
+      <div className="container-lg">
+        <div className="row my-5 ">
+          <div className="col-md-6">
+            <MyImage images={images} />
+          </div>
+          <div className="col-md-6">
+            <div className="d-flex justify-content-between">
+              <p className="text-uppercase text-secondary fw-normal fs-6">
+                {category}
+              </p>
+              <div className="d-flex">
+                <Rating /> (32)
+              </div>
+            </div>
+            <h2 className="fs-2 fw-semibold">{name}</h2>
+            <div className="d-flex gap-3 align-items-center">
+              <p className="fs-4 fw-bold mb-0">${price}</p>
+              <del className="text-secondary fs-5 fw-normal">
+                ${price + 200}
+              </del>
+              <span
+                className="bg-danger p-1 text-white rounded-2 my-4"
+                style={{ fontSize: "12px" }}
+              >
+                -17%
+              </span>
+            </div>
+            <p>{description}</p>
+            <div>
+              <h5 className="fs-6">Color: </h5>
+              <div className="d-flex align-items-start ">
+                {colors?.map((color, index) => {
+                  return (
+                    <div className="d-flex flex-column">
+                      <button
+                        onClick={() => setCurrColor(color.code)}
+                        key={`color-${index}-${color.code}`}
+                        style={{
+                          marginRight: "10px",
+                          backgroundColor: color.code,
+                          width: "30px",
+                          height: "30px",
+                        }}
+                        className="border-1 rounded-circle"
+                      >
+                        {currColor == color.code ? (
+                          <i className="bi bi-check"></i>
+                        ) : (
+                          ""
+                        )}
+                      </button>
+                      <span
+                        className={
+                          currColor == color.code ? "d-inline-block" : "d-none"
+                        }
+                        style={{ fontSize: "14px" }}
+                      >
+                        {color.name}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            {sizes && sizes.length > 0 && (
+              <div className="mt-2">
+                <h5 className="fs-6">Sizes: </h5>
+                <div className="d-flex align-items-center ">
+                  {sizes?.map((size, index) => {
+                    return (
+                      <button
+                        onClick={() => setCurrSize(size)}
+                        key={`size-${index}-${size}`}
+                        style={{
+                          marginRight: "10px",
+                          backgroundColor: size == currSize ? "#0a4db8" : "",
+                          color: size == currSize ? "white" : "",
+                          width: "30px",
+                          height: "30px",
+                        }}
+                        className="border-1 rounded-1"
+                      >
+                        {size}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
+
+            {/* Quantity */}
+           <div className="mt-4">
+  <h5 className="fs-6 mb-3">Quantity:</h5>
+  <div className="d-inline-flex  rounded-2 border-secondary">
+    <button 
+      className="p-2 bg-light border border-secondary"
+      onClick={decrementQuantity}
+      style={{ 
+        width: '40px', 
+        border: 'none',
+        cursor: 'pointer'
+      }}
+    >
+      -
+    </button>
+    
+    <div 
+      className="p-2 px-4 border-top border-bottom border-secondary  d-flex align-items-center justify-content-center" 
+      style={{ 
+        width: '60px', 
+      }}
+    >
+      {currQuantity}
+    </div>
+    
+    <button 
+      className="p-2 bg-light border border-secondary"
+      onClick={incrementQuantity}
+      style={{ 
+        width: '40px', 
+        border: 'none',
+        cursor: 'pointer'
+      }}
+    >
+      +
+    </button>
+  </div>
+</div>
+            
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default SingleProduct;

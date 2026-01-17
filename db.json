@@ -3,101 +3,217 @@
     {
       "id": 1,
       "name": "Summer Collection Dress",
-      "description": "Beautiful summer dress made from breathable cotton fabric",
+      "description": "Elegant and breezy summer dress crafted from 100% premium breathable cotton fabric. Perfect for warm weather, featuring a flattering A-line silhouette with delicate floral patterns. The dress includes a comfortable elastic waistband, adjustable spaghetti straps, and a flowing knee-length skirt. Easy to care for with machine wash instructions. Ideal for beach vacations, garden parties, or casual daytime outings.",
       "price": 89.99,
       "category": "Clothing",
-      "image": "./images/product-11.webp",
+      "image": "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1585487000160-6eb9ce6b5aae?w-800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.5,
       "stock": 15,
-      "colors": ["Blue", "White", "Pink"],
+      "colors": [
+        {"name": "Sky Blue", "code": "#87CEEB"},
+        {"name": "Ivory White", "code": "#FFFFF0"},
+        {"name": "Blush Pink", "code": "#FFB6C1"}
+      ],
       "sizes": ["S", "M", "L", "XL"],
-      "featured": true
+      "featured": true,
+      "discount": 15,
+      "brand": "SummerBreeze",
+      "material": "100% Cotton",
+      "shippingDays": 3,
+      "tags": ["Summer", "Dress", "Cotton", "Floral", "Casual"]
     },
     {
       "id": 2,
-      "name": "Casual Wear T-Shirt",
-      "description": "Comfortable casual t-shirt for everyday wear",
+      "name": "Premium Casual T-Shirt",
+      "description": "Ultra-soft premium cotton t-shirt designed for all-day comfort and style. Features a classic crew neck with reinforced stitching for durability. The fabric is pre-shrunk and retains its shape wash after wash. Perfect for layering or wearing alone, with a relaxed fit that suits all body types. Available in versatile neutral colors that match with any wardrobe. Made with sustainable materials and ethical manufacturing processes.",
       "price": 35.65,
       "category": "Clothing",
-      "image": "./images/product1.jpg",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.0,
       "stock": 25,
-      "colors": ["Black", "White", "Gray"],
+      "colors": [
+        {"name": "Jet Black", "code": "#000000"},
+        {"name": "Pure White", "code": "#FFFFFF"},
+        {"name": "Charcoal Gray", "code": "#36454F"}
+      ],
       "sizes": ["S", "M", "L"],
-      "featured": true
+      "featured": true,
+      "discount": 10,
+      "brand": "UrbanWear",
+      "material": "Organic Cotton",
+      "shippingDays": 2,
+      "tags": ["Basic", "T-Shirt", "Casual", "Everyday", "Essential"]
     },
     {
       "id": 3,
-      "name": "Leather Handbag",
-      "description": "Genuine leather handbag with multiple compartments",
+      "name": "Genuine Leather Handbag",
+      "description": "Handcrafted genuine leather handbag featuring multiple functional compartments for optimal organization. Made from full-grain leather that develops a beautiful patina over time. Includes a secure magnetic closure, adjustable shoulder strap, and interior pockets for phone, wallet, and cosmetics. The spacious main compartment accommodates tablets and documents. Perfect for professional settings or elegant outings, combining timeless style with practical functionality.",
       "price": 65.32,
       "category": "Accessories",
-      "image": "./images/hero-floating-img2.webp",
+      "image": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1591561954557-26941169b49e?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.0,
       "stock": 8,
-      "colors": ["Brown", "Black"],
-      "featured": false
+      "colors": [
+        {"name": "Chestnut Brown", "code": "#954535"},
+        {"name": "Midnight Black", "code": "#191970"}
+      ],
+      "featured": false,
+      "discount": 20,
+      "brand": "LeatherCraft",
+      "material": "Full-grain Leather",
+      "shippingDays": 5,
+      "tags": ["Leather", "Handbag", "Professional", "Elegant", "Organizer"]
     },
     {
       "id": 4,
-      "name": "Premium Watch",
-      "description": "Luxury watch with leather strap",
+      "name": "Classic Luxury Watch",
+      "description": "Exquisite luxury timepiece featuring a genuine leather strap and precise quartz movement. The minimalist dial design with Roman numerals offers timeless elegance. Water-resistant up to 50 meters with scratch-resistant sapphire crystal glass. The stainless steel case provides durability while maintaining a lightweight feel. Perfect for both formal occasions and everyday wear, making it a versatile addition to any collection.",
       "price": 54.65,
       "category": "Accessories",
-      "image": "./images/product-4.webp",
+      "image": "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1547996160-81f6ac8b2f9c?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=800&auto=format&fit=crop"
+      ],
       "rating": 5.0,
       "stock": 5,
-      "colors": ["Silver", "Gold"],
-      "featured": true
+      "colors": [
+        {"name": "Silver", "code": "#C0C0C0"},
+        {"name": "Gold", "code": "#FFD700"}
+      ],
+      "featured": false,
+      "discount": 0,
+      "brand": "TimeCraft",
+      "material": "Stainless Steel & Leather",
+      "shippingDays": 4,
+      "tags": ["Watch", "Luxury", "Classic", "Roman Numerals", "Quartz"]
     },
     {
       "id": 5,
-      "name": "Wireless Headphones",
-      "description": "Noise-cancelling wireless headphones",
+      "name": "Noise-Cancelling Wireless Headphones",
+      "description": "Premium wireless headphones with active noise cancellation technology for immersive audio experience. Features 30-hour battery life, quick charging capability, and premium sound quality with deep bass. Includes comfortable memory foam ear cushions for extended wear. Built-in microphone with crystal-clear call quality and touch controls for easy operation. Compatible with all Bluetooth devices and comes with a protective carrying case for travel.",
       "price": 199.99,
       "category": "Electronics",
-      "image": "./images/product3.webp",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1487215078519-e21cc028cb29?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.2,
       "stock": 12,
-      "colors": ["Black", "White"],
-      "featured": false
+      "colors": [
+        {"name": "Matte Black", "code": "#1C1C1C"},
+        {"name": "Pearl White", "code": "#F8F8FF"}
+      ],
+      "featured": false,
+      "discount": 25,
+      "brand": "AudioPro",
+      "material": "Plastic & Memory Foam",
+      "shippingDays": 2,
+      "tags": ["Headphones", "Wireless", "Noise-Cancelling", "Bluetooth", "Audio"]
     },
     {
       "id": 6,
-      "name": "Smart Watch",
-      "description": "Fitness tracker with heart rate monitor",
+      "name": "Advanced Smart Watch",
+      "description": "Feature-packed smartwatch with comprehensive health monitoring including heart rate, blood oxygen, and sleep tracking. Water-resistant design suitable for swimming with built-in GPS for accurate activity tracking. Long-lasting battery supports up to 7 days of use on a single charge. Connects seamlessly with both iOS and Android devices, displaying notifications and allowing music control. Customizable watch faces and interchangeable bands for personalized style.",
       "price": 149.99,
       "category": "Electronics",
-      "image": "./images/product-7.webp",
+      "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1579586337278-3f4262c6d0a8?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.3,
       "stock": 18,
-      "colors": ["Black", "Blue"],
-      "featured": true
+      "colors": [
+        {"name": "Onyx Black", "code": "#0A0A0A"},
+        {"name": "Ocean Blue", "code": "#1E3A8A"}
+      ],
+      "featured": true,
+      "discount": 15,
+      "brand": "TechWear",
+      "material": "Aluminum & Silicone",
+      "shippingDays": 3,
+      "tags": ["Smartwatch", "Fitness", "GPS", "Health", "Waterproof"]
     },
     {
       "id": 7,
-      "name": "Sunglasses",
-      "description": "UV protection polarized sunglasses",
+      "name": "Polarized UV Protection Sunglasses",
+      "description": "High-quality polarized sunglasses offering 100% UV protection with impact-resistant polycarbonate lenses. Features lightweight frames with spring hinges for comfortable fit and durability. The polarized lenses reduce glare from reflective surfaces like water and roads, enhancing visual clarity. Classic aviator design suits various face shapes and styles. Includes a hard protective case and microfiber cleaning cloth for maintenance and safe storage.",
       "price": 45.99,
       "category": "Accessories",
-      "image": "./images/product-5.webp",
+      "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1556306535-0f09a537f0d3?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1551866442-64e75e911bc3?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.1,
       "stock": 30,
-      "colors": ["Black", "Brown", "Blue"],
-      "featured": false
+      "colors": [
+        {"name": "Classic Black", "code": "#0D0D0D"},
+        {"name": "Tortoise Brown", "code": "#8B4513"},
+        {"name": "Navy Blue", "code": "#000080"}
+      ],
+      "featured": false,
+      "discount": 30,
+      "brand": "SunShield",
+      "material": "Polycarbonate & Acetate",
+      "shippingDays": 2,
+      "tags": ["Sunglasses", "Polarized", "UV Protection", "Aviator", "Accessory"]
     },
     {
       "id": 8,
-      "name": "Running Shoes",
-      "description": "Lightweight running shoes with cushioning",
+      "name": "Professional Running Shoes",
+      "description": "Lightweight performance running shoes with advanced cushioning technology for maximum comfort and shock absorption. Breathable mesh upper provides ventilation during intense workouts. Durable rubber outsole offers excellent traction on various surfaces. Features reflective elements for safety during low-light conditions. The ergonomic design supports natural foot movement and reduces fatigue. Suitable for running, gym workouts, and everyday athletic activities.",
       "price": 79.99,
       "category": "Clothing",
-      "image": "./images/product-8.webp",
+      "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop",
+      "images": [
+        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=800&auto=format&fit=crop",
+        "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=800&auto=format&fit=crop"
+      ],
       "rating": 4.4,
-      "stock": 22,
-      "colors": ["White", "Black", "Blue"],
+      "stock": 0,
+      "colors": [
+        {"name": "Cloud White", "code": "#F5F5F5"},
+        {"name": "Shadow Black", "code": "#2C2C2C"},
+        {"name": "Electric Blue", "code": "#0066CC"}
+      ],
       "sizes": ["7", "8", "9", "10", "11"],
-      "featured": true
+      "featured": true,
+      "discount": 20,
+      "brand": "RunMax",
+      "material": "Mesh & Rubber",
+      "shippingDays": 4,
+      "tags": ["Running", "Shoes", "Athletic", "Sports", "Gym"]
     }
   ],
   "reviews": [
@@ -106,8 +222,36 @@
       "productId": 1,
       "user": "John Doe",
       "rating": 5,
-      "comment": "Great quality! Fits perfectly.",
+      "comment": "Great quality! Fits perfectly. The material is exactly as described - breathable and comfortable for summer weather.",
       "date": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "productId": 2,
+      "user": "Sarah Miller",
+      "rating": 4,
+      "comment": "Very comfortable t-shirt, true to size. The fabric is soft and holds up well after multiple washes.",
+      "date": "2024-02-10"
+    },
+    {
+      "id": 3,
+      "productId": 4,
+      "user": "Robert Chen",
+      "rating": 5,
+      "comment": "Excellent watch! The leather strap is high quality and the watch keeps perfect time. Looks more expensive than it is.",
+      "date": "2024-01-28"
     }
-  ]
+  ],
+  "categories": [
+    {"id": 0, "name": "All", "icon": "👕"},
+    {"id": 1, "name": "Clothing", "icon": "👕"},
+    {"id": 2, "name": "Accessories", "icon": "👜"},
+    {"id": 3, "name": "Electronics", "icon": "📱"}
+  ],
+  "siteInfo": {
+    "name": "StyleHub",
+    "description": "Premium online shopping destination for fashion and lifestyle products",
+    "contactEmail": "support@stylehub.com",
+    "phone": "+1-800-STYLE-HUB"
+  }
 }
