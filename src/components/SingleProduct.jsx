@@ -23,7 +23,7 @@ const SingleProduct = () => {
   } = singleProduct;
   const [currColor, setCurrColor] = useState(colors[0]?.code || "");
   const [currSize, setCurrSize] = useState(sizes[0] || "");
-  const [currQuantity,setCurrQuantity] = useState(1)
+  const [currQuantity, setCurrQuantity] = useState(1);
   console.log(sizes);
   const { id } = useParams();
   useEffect(() => {
@@ -35,15 +35,13 @@ const SingleProduct = () => {
     return <h3>Loading....</h3>;
   }
 
-  const decrementQuantity = ()=>{
-    if (currQuantity>1)
-    setCurrQuantity(currQuantity-1)
-  }
+  const decrementQuantity = () => {
+    if (currQuantity > 1) setCurrQuantity(currQuantity - 1);
+  };
 
-  const incrementQuantity = ()=>{
-    if (currQuantity<stock)
-      setCurrQuantity(currQuantity+1)
-  }
+  const incrementQuantity = () => {
+    if (currQuantity < stock) setCurrQuantity(currQuantity + 1);
+  };
   return (
     <>
       <PageNavigation pageName={"ProductDetails"} />
@@ -74,7 +72,9 @@ const SingleProduct = () => {
                 -17%
               </span>
             </div>
+            {/* description */}
             <p>{description}</p>
+            {/* colors */}
             <div>
               <h5 className="fs-6">Color: </h5>
               <div className="d-flex align-items-start ">
@@ -111,6 +111,7 @@ const SingleProduct = () => {
                 })}
               </div>
             </div>
+            {/* sizes */}
             {sizes && sizes.length > 0 && (
               <div className="mt-2">
                 <h5 className="fs-6">Sizes: </h5>
@@ -138,44 +139,72 @@ const SingleProduct = () => {
             )}
 
             {/* Quantity */}
-           <div className="mt-4">
-  <h5 className="fs-6 mb-3">Quantity:</h5>
-  <div className="d-inline-flex  rounded-2 border-secondary">
-    <button 
-      className="p-2 bg-light border border-secondary"
-      onClick={decrementQuantity}
-      style={{ 
-        width: '40px', 
-        border: 'none',
-        cursor: 'pointer'
-      }}
-    >
-      -
-    </button>
-    
-    <div 
-      className="p-2 px-4 border-top border-bottom border-secondary  d-flex align-items-center justify-content-center" 
-      style={{ 
-        width: '60px', 
-      }}
-    >
-      {currQuantity}
-    </div>
-    
-    <button 
-      className="p-2 bg-light border border-secondary"
-      onClick={incrementQuantity}
-      style={{ 
-        width: '40px', 
-        border: 'none',
-        cursor: 'pointer'
-      }}
-    >
-      +
-    </button>
-  </div>
-</div>
-            
+            <div className="mt-4">
+              <h5 className="fs-6 mb-3">Quantity:</h5>
+              <div className="d-inline-flex overflow-hidden  rounded-2 border-secondary">
+                <button
+                  className="p-2 bg-light border border-secondary rounded-start" 
+                  onClick={decrementQuantity}
+                  style={{
+                    width: "40px",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  -
+                </button>
+
+                <div
+                  className="p-2 px-4 border-top border-bottom border-secondary  d-flex align-items-center justify-content-center"
+                  style={{
+                    width: "60px",
+                  }}
+                >
+                  {currQuantity}
+                </div>
+
+                <button
+                  className="p-2 bg-light border border-secondary rounded-end"
+                  onClick={incrementQuantity}
+                  style={{
+                    width: "40px",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
+                  +
+                </button>
+              </div>
+            </div>
+            {/* buttons */}
+            <div class="row mt-3 d-flex flex-sm-row flex-column gap-sm-0 gap-3  py-3" style={{borderBottom:"1px solid #E5E4E2"}}>
+              <div className="col-sm-5">
+                <button style={{backgroundColor:"#0a4db8",color:"white"}} className="btn w-100" > <i className="bi bi-bag-plus"></i> Add to Cart </button>
+              </div>
+              <div className="col-sm-5">
+                <button  className="btn w-100 " style={{border:"1px solid #0a4db8",color:"#0a4db8" }} > <i class="bi bi-lightning-charge-fill"></i> Buy Now </button>
+              </div>
+              <div className="col-sm-2 d-flex justify-content-center pe-0">
+                <button className="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+              </div>
+            </div>
+
+            {/* features */}
+            <div className="d-flex flex flex-column mt-5 gap-3 fs-6">
+          <div>
+            <i className="bi bi-truck" style={{color: "#0a4db8"}}></i>
+            <span className=" ms-2">Free shipping on orders over $50</span>
+          </div>
+         
+          <div>
+            <i className="bi bi-arrow-repeat" style={{color: "#0a4db8"}}></i>
+            <span className=" ms-2">30-day return policy</span>
+          </div>
+           <div>
+            <i className="bi bi-shield-check" style={{color: "#0a4db8"}}></i>
+            <span className=" ms-2">2-year warranty</span>
+          </div>
+        </div>
           </div>
         </div>
       </div>
