@@ -1,6 +1,7 @@
 import React from 'react'
 import Header from './components/Header'
 import PageNavigation from './components/PageNavigation'
+import Testinomials from './components/Testinomials'
 
 const About = () => {
   return (
@@ -20,28 +21,33 @@ const About = () => {
             </div>
           </div>
           {/* row2 */}
-          <div className="row">
+          <div className="row mt-5">
             <div className="col-md-4">
-              <h4>At vero eos</h4>
+              <i class="bi bi-bullseye fs-2 px-3 py-2 rounded-3 " style={{color:"#0a4db8", backgroundColor:"#ebf2fa"}}></i>
+              <h4 className='mt-4 fs-5 text-muted'>At vero eos</h4>
               <p>
 Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat.</p>
             </div>
             <div className="col-md-4">
-              <h4>Sed ut perspiciatis</h4>
+              <i class="bi bi-person-fill-check fs-2  px-3 py-2 rounded-3" style={{color:"#0a4db8", backgroundColor:"#ebf2fa"}}></i>
+              <h4 className='mt-4 fs-5 text-muted'>Sed ut perspiciatis</h4>
               <p>Lorem ipsum dolrum non accusamus. Vel id esse facere cupiditate nobis nostrum iste, aperiam officiis sit?</p>
             </div>
             <div className="col-md-4">
-              <h4>Nemo enim ipsam</h4>
+              <i class="bi bi-clipboard-data fs-2  px-3 py-2 rounded-3" style={{color:"#0a4db8", backgroundColor:"#ebf2fa"}}></i>
+              <h4 className='mt-4 fs-5 text-muted'>Nemo enim ipsam</h4>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem minima dolor veritatis distinctio at soluta, corrupti debitis fugit ex sed!</p>
             </div>
           </div>
           {/* row3 */}
-          <div className="row">
+          <div className="row my-5">
             <div className="col">
-              <img className='img-fluid rounded-5' src="https://bootstrapmade.com/content/demo/eStore/assets/img/about/about-wide-1.webp" class="img-fluid" alt="Video Thumbnail"></img>
+              <img className='img-fluid w-full rounded-4' src="https://bootstrapmade.com/content/demo/eStore/assets/img/about/about-wide-1.webp"  alt="Video Thumbnail"></img>
               {/* <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> */}
             </div>
           </div>
+          {/* testinomials */}
+          <Testinomials/>
         </div>
     </div>
   )

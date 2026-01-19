@@ -179,12 +179,12 @@ const SingleProduct = () => {
             {/* buttons */}
             <div class="row mt-3 d-flex flex-sm-row flex-column gap-sm-0 gap-3  py-3" style={{borderBottom:"1px solid #E5E4E2"}}>
               <div className="col-sm-5">
-                <button style={{backgroundColor:"#0a4db8",color:"white"}} className="btn w-100" > <i className="bi bi-bag-plus"></i> Add to Cart </button>
+                <button style={{backgroundColor:"#0a4db8",color:"white"}} className=" btn w-100" > <i className="bi bi-bag-plus"></i> Add to Cart </button>
               </div>
               <div className="col-sm-5">
-                <button  className="btn w-100 " style={{border:"1px solid #0a4db8",color:"#0a4db8" }} > <i class="bi bi-lightning-charge-fill"></i> Buy Now </button>
+                <button  className=" btn w-100 " style={{border:"1px solid #0a4db8",color:"#0a4db8" }} > <i class="bi bi-lightning-charge-fill"></i> Buy Now </button>
               </div>
-              <div className="col-sm-2 d-flex justify-content-center pe-0">
+              <div className="col-sm-2  pe-0">
                 <button className="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
               </div>
             </div>

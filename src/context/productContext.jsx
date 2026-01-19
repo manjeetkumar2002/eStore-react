@@ -10,7 +10,8 @@ const initalState = {
     products:[],
     singleProduct:{},
     categories:[],
-    featuredProducts:[]
+    featuredProducts:[],
+    testinomials:[]
 }
 
 const AppProvider = ({children})=>{
@@ -36,11 +37,18 @@ const AppProvider = ({children})=>{
         dispatch({type:"SET_CATEGORIES",payload:categories})
     }
 
+    const getTestinomials = async (url) =>{
+        const response = await axios.get(url)
+        const testinomials = response.data
+        console.log(testinomials)
+        dispatch({type:"SET_TESTINOMIALS",payload:testinomials})
+    }
+
     useEffect(()=>{
         getProducts(API+"/products")
         getCategories(API+"/categories")
     },[])
-    return <AppContext.Provider value = {{...state,getSingleProduct}}>{children}</AppContext.Provider>
+    return <AppContext.Provider value = {{...state,getSingleProduct,getTestinomials}}>{children}</AppContext.Provider>
 }
 
 const useProductContext = () =>{

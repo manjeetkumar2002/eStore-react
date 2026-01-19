@@ -253,5 +253,43 @@
     "description": "Premium online shopping destination for fashion and lifestyle products",
     "contactEmail": "support@stylehub.com",
     "phone": "+1-800-STYLE-HUB"
-  }
+  },
+  "testinomials":[
+    {
+      "author":"Rachel Bennett",
+      "testinomial":"Implementing innovative strategies has revolutionized our approach to market challenges and competitive positioning.",
+      "designation":"Strategy Director",
+      "authorImage":"https://bootstrapmade.com/content/demo/eStore/assets/img/person/person-f-7.webp"
+    },
+    {
+      "author":"Daniel Morgan",
+      "testinomial":"Exceptional service delivery and innovative solutions have transformed our business operations, leading to remarkable growth and enhanced customer satisfaction across all touchpoints.",
+      "designation":"Chief Innovation Officer",
+      "authorImage":"https://bootstrapmade.com/content/demo/eStore/assets/img/person/person-m-7.webp"
+    },
+    {
+      "author":"Emma Thompson",
+      "testinomial":"Strategic partnership has enabled seamless digital transformation and operational excellence.",
+      "designation":"Digital Lead",
+      "authorImage":"https://bootstrapmade.com/content/demo/eStore/assets/img/person/person-f-8.webp"
+    },
+    {
+      "author":"Christopher Lee",
+      "testinomial":"Professional expertise and dedication have significantly improved our project delivery timelines and quality metrics.",
+      "designation":"Technical Director",
+      "authorImage":"https://bootstrapmade.com/content/demo/eStore/assets/img/person/person-m-8.webp"
+    },
+    {
+      "author":"Olivia Carter",
+      "testinomial":"Collaborative approach and industry expertise have revolutionized our product development cycle, resulting in faster time-to-market and increased customer engagement levels.",
+      "designation":"Product Manager",
+      "authorImage":"https://bootstrapmade.com/content/demo/eStore/assets/img/person/person-f-9.webp"
+    },
+    {
+      "author":"Nathan Brooks",
+      "testinomial":"Innovative approach to user experience design has significantly enhanced our platform's engagement metrics and customer retention rates.",
+      "designation":"UX Director",
+      "authorImage":"https://bootstrapmade.com/content/demo/eStore/assets/img/person/person-m-9.webp"
+    }
+  ]
 }

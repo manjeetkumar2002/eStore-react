@@ -31,6 +31,12 @@ const ProductReducer = (state,action) => {
                 ...state,
                 categories:action.payload
             }
+
+        case "SET_TESTINOMIALS":
+            return {
+                ...state,
+                testinomials:action.payload
+            }
         default:
             return state
     }

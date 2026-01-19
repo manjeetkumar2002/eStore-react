@@ -5,7 +5,7 @@ const Header = () => {
     const [showSearchBar,setshowSearchBar] = useState(false)
     
     return (
-    <div id="header-section">
+    <div id="header-section" style={{position: "relative", zIndex: 1000}}>
         <div className="container-lg overflow-hidden">
                 <div className="row py-4 align-items-center">
                         <div className="col-4 order-0">
@@ -36,7 +36,7 @@ const Header = () => {
                         </div>
                 </div>
                 {/* nav */}
-                <div style={{backgroundColor:showMenu?"rgba(0, 0, 0, 0.7)":""}} className={`${showMenu ?"position-absolute p-4 top-0  d-lg-none vh-100 start-0 end-0 z-100":"row border border-start-0 border-end-0 py-3 d-lg-block d-none"}`}>
+                <div style={{backgroundColor:showMenu?"rgba(0, 0, 0, 0.7)":""}} className={`${showMenu ?"position-absolute p-4 top-0  d-lg-none vh-100 start-0 end-0":"row border border-start-0 border-end-0 py-3 d-lg-block d-none"}`}>
                     <div className="d-flex d-lg-none justify-content-end mb-3 ">
                     <i onClick={()=>setShowMenu(!showMenu)} class="bi bi-x-lg fs-4 text-white fw-bold"></i>
                     </div>
