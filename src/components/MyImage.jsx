@@ -40,8 +40,8 @@ const MyImage = ({ images = [] }) => { // ✅ Default empty array
                     })
                 }
                 <div className="position-absolute px-2 w-100" style={{ zIndex: 100, top: '35%' }}>
-                    <i className=" bi bi-chevron-left border-0 fs-3 fw-semibold rounded-circle px-1 py-0 shadow-sm bg-white" style={{ color: '#0a4db8' ,cursor: "pointer",}}></i>
-                    <i className=" bi bi-chevron-right border-0 fs-3 fw-semibold rounded-circle px-1 py-0 shadow-sm bg-white float-end" style={{ color: '#0a4db8',cursor: "pointer", }}></i>
+                    <i className=" bi bi-chevron-left border-0 fs-3 fw-semibold rounded-circle px-1 py-0 shadow-sm bg-white" style={{ color: '#0a4db8' ,cursor: "pointer",      }}></i>
+                    <i className=" bi bi-chevron-right border-0 fs-3 fw-semibold rounded-circle px-1 py-0 shadow-sm bg-white float-end" style={{ color: '#0a4db8',cursor: "pointer",         }}></i>
                 </div>
             </div>
         </div>
