@@ -2,7 +2,7 @@ import React from 'react'
 import { useFilterContext } from '../context/filterContext'
 
 const Sort = () => {
-    const {setGridView,setListView,grid_view} = useFilterContext()
+    const {setGridView,setListView,grid_view,sorting, sorting_value} = useFilterContext()
   return (
     <div className='row mt-4 mx-auto '>
         {/* col1 */}
@@ -32,17 +32,20 @@ const Sort = () => {
          {/* col3 */}
         <div className='col-xl-2 col-sm-6'>
             <h6 className='mt-2'>Sort by</h6>
-            <div className="dropdown">
+            <form action="#">
+                <div className="dropdown">
                 <button  style={{width:"100%"}} className="p-2 border bg-white rounded-2 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Featured
+                    {sorting_value}
                 </button>
-                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a className="dropdown-item" href="#">Price: Low to High</a>
-                    <a className="dropdown-item" href="#">Price: High to Low</a>
-                    <a className="dropdown-item" href="#">a-z</a>
-                    <a className="dropdown-item" href="#">z-a</a>
+                <div onClick={sorting} className="dropdown-menu py-0" aria-labelledby="dropdownMenuButton">
+                    <option value={"lowest"} className="dropdown-item" href="#">Price: (lowest)</option>
+                    <option value={"highest"} className="dropdown-item" href="#">Price: (highest)</option>
+                    <option value={"a-z"} className="dropdown-item" href="#">Price: (a-z)</option>
+                    <option  value={"z-a"}className="dropdown-item" href="#">Price: (z-a)</option>
                 </div>
             </div>
+            </form>
+            
         </div>
         {/* col4 */}
         <div className='col-xl-2 col-sm-2 col'>
