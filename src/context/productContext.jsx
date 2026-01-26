@@ -33,14 +33,14 @@ const AppProvider = ({children})=>{
     const getCategories = async (url) =>{
         const response = await axios.get(url)
         const categories = await response.data
-        console.log(categories)
+        // console.log(categories)
         dispatch({type:"SET_CATEGORIES",payload:categories})
     }
 
     const getTestinomials = async (url) =>{
         const response = await axios.get(url)
         const testinomials = response.data
-        console.log(testinomials)
+        // console.log(testinomials)
         dispatch({type:"SET_TESTINOMIALS",payload:testinomials})
     }
 

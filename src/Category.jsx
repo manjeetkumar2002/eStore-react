@@ -1,6 +1,9 @@
 import React from 'react'
 import PageNavigation from './components/PageNavigation'
 import CatergoryFilter from "./components/CatergoryFilter"
+import Sort from './components/Sort'
+import ProductList from './components/ProductList'
+import ActiveFilters from './components/ActiveFilters'
 const Category = () => {
   return (
     <div>
@@ -10,7 +13,14 @@ const Category = () => {
               <div className="col-md-4">
                 <CatergoryFilter/>
               </div>
-              <div className="col-md-8">
+              <div className="col-md-8 shadow">
+                <div className="row">
+                  <Sort/>
+                </div>
+                <div>
+                  <ActiveFilters/>
+                </div>
+                <ProductList/>
               </div>
             </div>
         </div>

@@ -38,7 +38,7 @@ const Header = () => {
                 {/* nav */}
                 <div style={{backgroundColor:showMenu?"rgba(0, 0, 0, 0.7)":""}} className={`${showMenu ?"position-absolute p-4 top-0  d-lg-none vh-100 start-0 end-0":"row border border-start-0 border-end-0 py-3 d-lg-block d-none"}`}>
                     <div className="d-flex d-lg-none justify-content-end mb-3 ">
-                    <i onClick={()=>setShowMenu(!showMenu)} class="bi bi-x-lg fs-4 text-white fw-bold"></i>
+                    <i onClick={()=>setShowMenu(!showMenu)} className="bi bi-x-lg fs-4 text-white fw-bold"></i>
                     </div>
                     <ul id="nav-menu" style={{minHeight:showMenu?"93%":"" }} className={`${showMenu?"d-flex d-lg-none  flex-column bg-white fs-6 gap-4 p-4 rounded-2 align-items-start":"list-unstyled d-flex fs-6 gap-3 mb-0 flex-wrap"}`}>
                         <NavLink to="/" className="text-decoration-none text-dark">Home</NavLink>
