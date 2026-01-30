@@ -14,3 +14,21 @@
     /* width: 100px; */
     height: 5px;
 }
+
+.cart-card{
+    border:1px solid rgb(200, 200, 200);
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+}
+
+.cart-card:hover{
+    border-color:rgb(33, 52, 255);
+}
+
+.cart-remove-btn{
+    color: rgb(138, 138, 138);
+    transition: all 0.1s ease-in;
+}
+.cart-remove-btn:hover{
+    color:red;
+}

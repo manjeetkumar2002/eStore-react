@@ -17,13 +17,14 @@ const SingleProduct = () => {
     description,
     price,
     category,
+    image,
     images = [],
     rating,
     stock,
     colors = [],
     sizes = [],
   } = singleProduct;
-  const [currColor, setCurrColor] = useState(colors[0]?.code || "");
+  const [currColor, setCurrColor] = useState(colors[0] || "");
   const [currSize, setCurrSize] = useState(sizes[0] || "");
   const [currQuantity, setCurrQuantity] = useState(1);
   console.log(currColor,currQuantity,currSize)
@@ -84,7 +85,7 @@ const SingleProduct = () => {
                   return (
                     <div key={index} className="d-flex flex-column">
                       <button
-                        onClick={() => setCurrColor(color.code)}
+                        onClick={() => setCurrColor(color)}
                         key={`color-${index}-${color.code}`}
                         style={{
                           marginRight: "10px",
@@ -94,7 +95,7 @@ const SingleProduct = () => {
                         }}
                         className="border-1 rounded-circle"
                       >
-                        {currColor == color.code ? (
+                        {currColor.code == color.code ? (
                           <i className="bi bi-check"></i>
                         ) : (
                           ""
@@ -102,11 +103,11 @@ const SingleProduct = () => {
                       </button>
                       <span
                         className={
-                          currColor == color.code ? "d-inline-block" : "d-none"
+                          currColor.code == color.code ? "d-inline-block" : "d-none"
                         }
                         style={{ fontSize: "14px" }}
                       >
-                        {color.name}
+                        {currColor.name}
                       </span>
                     </div>
                   );
@@ -185,7 +186,7 @@ const SingleProduct = () => {
             >
               <div className="col-sm-5">
                 <button
-                  onClick={()=>addToCart({id,quantity:currQuantity,color:currColor,size:currSize})}
+                  onClick={()=>addToCart({id,quantity:currQuantity,color:currColor,size:currSize,image:image,price:price,name:name,stock:stock})}
                   style={{ backgroundColor: "#0a4db8", color: "white" }}
                   className=" btn w-100"
                 >
