@@ -27,7 +27,7 @@ const AppProvider = ({children})=>{
         dispatch({type:"SET_LOADING"})
         const response = await axios.get(url)
         const singleProduct = await response.data
-        console.log(singleProduct)
+        // console.log(singleProduct)
         dispatch({type:"SET_SINGLE_PRODUCT",payload:singleProduct})
     }
     const getCategories = async (url) =>{

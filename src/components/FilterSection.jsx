@@ -3,11 +3,12 @@ import { useFilterContext } from "../context/filterContext";
 
 const FilterSection = () => {
   const {
-    filters: { category,colors },
+    filters: { category,colors,company },
     all_products,
     updateFilterValue,
     filter_products,
-    getUniqueValue
+    getUniqueValue,
+    clearFilters
   } = useFilterContext();
 
   
@@ -43,7 +44,7 @@ const FilterSection = () => {
         <h3 className="mb-4 fs-5">Company</h3>
         <div>
           <form action="#">
-            <select style={{width:"200px"}} name="company" id="company" onClick={updateFilterValue}>
+            <select value={company}  style={{width:"200px"}} name="company" id="company" onChange={updateFilterValue}>
               {companyData.map((curElem, index) => {
                 return (
                   <option key={index} name="company" value={curElem}>
@@ -96,6 +97,11 @@ const FilterSection = () => {
             );
           })}
         </div>
+      </div>
+
+
+      <div className="clear-filter">
+          <button onClick={clearFilters}  className="btn btn-danger w-50">Clear</button>
       </div>
     </div>
   );

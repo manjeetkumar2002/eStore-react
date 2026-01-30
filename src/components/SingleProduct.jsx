@@ -6,10 +6,12 @@ import ProductsCarousel from "./ProductsCarousel";
 import Star from "../Helper/Star";
 import { BiFontSize } from "react-icons/bi";
 import MyImage from "./MyImage";
+import { useCartContext } from "../context/cartContext";
 
 const API = "http://localhost:3001";
 const SingleProduct = () => {
   const { singleProduct, getSingleProduct, isLoading } = useProductContext();
+  const {addToCart,cart} = useCartContext()
   const {
     name,
     description,
@@ -24,7 +26,7 @@ const SingleProduct = () => {
   const [currColor, setCurrColor] = useState(colors[0]?.code || "");
   const [currSize, setCurrSize] = useState(sizes[0] || "");
   const [currQuantity, setCurrQuantity] = useState(1);
-  console.log(sizes);
+  console.log(currColor,currQuantity,currSize)
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -80,7 +82,7 @@ const SingleProduct = () => {
               <div className="d-flex align-items-start ">
                 {colors?.map((color, index) => {
                   return (
-                    <div className="d-flex flex-column">
+                    <div key={index} className="d-flex flex-column">
                       <button
                         onClick={() => setCurrColor(color.code)}
                         key={`color-${index}-${color.code}`}
@@ -143,7 +145,7 @@ const SingleProduct = () => {
               <h5 className="fs-6 mb-3">Quantity:</h5>
               <div className="d-inline-flex overflow-hidden  rounded-2 border-secondary">
                 <button
-                  className="p-2 bg-light border border-secondary rounded-start" 
+                  className="p-2 bg-light border border-secondary rounded-start"
                   onClick={decrementQuantity}
                   style={{
                     width: "40px",
@@ -177,34 +179,58 @@ const SingleProduct = () => {
               </div>
             </div>
             {/* buttons */}
-            <div class="row mt-3 d-flex flex-sm-row flex-column gap-sm-0 gap-3  py-3" style={{borderBottom:"1px solid #E5E4E2"}}>
+            <div
+              className="row mt-3 d-flex flex-sm-row flex-column gap-sm-0 gap-3  py-3"
+              style={{ borderBottom: "1px solid #E5E4E2" }}
+            >
               <div className="col-sm-5">
-                <button style={{backgroundColor:"#0a4db8",color:"white"}} className=" btn w-100" > <i className="bi bi-bag-plus"></i> Add to Cart </button>
+                <button
+                  onClick={()=>addToCart({id,quantity:currQuantity,color:currColor,size:currSize})}
+                  style={{ backgroundColor: "#0a4db8", color: "white" }}
+                  className=" btn w-100"
+                >
+                  {" "}
+                  <i className="bi bi-bag-plus"></i> Add to Cart{" "}
+                </button>
               </div>
               <div className="col-sm-5">
-                <button  className=" btn w-100 " style={{border:"1px solid #0a4db8",color:"#0a4db8" }} > <i class="bi bi-lightning-charge-fill"></i> Buy Now </button>
+                <button
+                  className=" btn w-100 "
+                  style={{ border: "1px solid #0a4db8", color: "#0a4db8" }}
+                >
+                  {" "}
+                  <i className="bi bi-lightning-charge-fill"></i> Buy Now{" "}
+                </button>
               </div>
               <div className="col-sm-2  pe-0">
-                <button className="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+                <button className="btn btn-outline-danger">
+                  <i className="bi bi-heart"></i>
+                </button>
               </div>
             </div>
 
             {/* features */}
             <div className="d-flex flex flex-column mt-5 gap-3 fs-6">
-          <div>
-            <i className="bi bi-truck" style={{color: "#0a4db8"}}></i>
-            <span className=" ms-2">Free shipping on orders over $50</span>
-          </div>
-         
-          <div>
-            <i className="bi bi-arrow-repeat" style={{color: "#0a4db8"}}></i>
-            <span className=" ms-2">30-day return policy</span>
-          </div>
-           <div>
-            <i className="bi bi-shield-check" style={{color: "#0a4db8"}}></i>
-            <span className=" ms-2">2-year warranty</span>
-          </div>
-        </div>
+              <div>
+                <i className="bi bi-truck" style={{ color: "#0a4db8" }}></i>
+                <span className=" ms-2">Free shipping on orders over $50</span>
+              </div>
+
+              <div>
+                <i
+                  className="bi bi-arrow-repeat"
+                  style={{ color: "#0a4db8" }}
+                ></i>
+                <span className=" ms-2">30-day return policy</span>
+              </div>
+              <div>
+                <i
+                  className="bi bi-shield-check"
+                  style={{ color: "#0a4db8" }}
+                ></i>
+                <span className=" ms-2">2-year warranty</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>

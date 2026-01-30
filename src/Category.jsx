@@ -1,6 +1,5 @@
 import React from 'react'
 import PageNavigation from './components/PageNavigation'
-import CatergoryFilter from "./components/CatergoryFilter"
 import Sort from './components/Sort'
 import ProductList from './components/ProductList'
 import ActiveFilters from './components/ActiveFilters'

@@ -101,6 +101,18 @@ const filterReducer = (state,action)=>{
                 filter_products:tempFilterProducts
             }
         }
+
+        case "CLEAR_FILTERS":{
+            return {
+                ...state,
+                filters:{
+                    text:"",
+                    category:"All",
+                    colors:"All",
+                    company:"All"
+                }
+            }
+        }
         default : 
             return state
     }

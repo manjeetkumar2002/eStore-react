@@ -10,7 +10,7 @@ const Testinomials = () => {
     return (
     <div className='row row-cols-1 row-cols-sm-2 row-cols-lg-3  my-5'>
         {
-            testinomials.map((currTestinomial,index)=><div className='col'><TestinomialCard index={index} data={currTestinomial} /></div>)
+            testinomials.map((currTestinomial,index)=><div key={index} className='col'><TestinomialCard index={index} data={currTestinomial} /></div>)
         }
     </div>
   )

@@ -1,9 +1,10 @@
 import { NavLink } from "react-router"
 import { useState } from "react"
+import { useCartContext } from "../context/cartContext"
 const Header = () => {
     const [showMenu,setShowMenu] = useState(false)
     const [showSearchBar,setshowSearchBar] = useState(false)
-    
+    const {total_items} = useCartContext()
     return (
     <div id="header-section" style={{position: "relative", zIndex: 1000}}>
         <div className="container-lg overflow-hidden">
@@ -29,7 +30,7 @@ const Header = () => {
                                 </div>
                                 <NavLink to="/cart" className="text-dark position-relative">
                                     <i className="bi bi-cart"></i>
-                                    <span className="position-absolute h-50 d-flex justify-content-center align-items-center  p-1 rounded-circle text-white" style={{"fontSize":"13px", backgroundColor: "#0a4db8", top:"-10px", right:"-12px"}} >3</span>
+                                    <span className="position-absolute h-50 d-flex justify-content-center align-items-center  p-1 rounded-circle text-white" style={{"fontSize":"13px", backgroundColor: "#0a4db8", top:"-10px", right:"-12px"}} >{total_items}</span>
                                 </NavLink> 
                                 <i onClick={()=>setShowMenu(!showMenu)} className="bi bi-list d-block d-lg-none"></i>
                             </div>
