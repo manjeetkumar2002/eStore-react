@@ -41,12 +41,11 @@
         "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800&auto=format&fit=crop"
       ],
-      "rating": 4.0,
+      "rating": 3.0,
       "stock": 25,
       "colors": [
         {"name": "Jet Black", "code": "#000000"},
-        {"name": "Pure White", "code": "#FFFFFF"},
-        {"name": "Charcoal Gray", "code": "#36454F"}
+        {"name": "Pure White", "code": "#FFFFFF"}
       ],
       "sizes": ["S", "M", "L"],
       "featured": true,
@@ -69,7 +68,7 @@
         "https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=800&auto=format&fit=crop"
       ],
-      "rating": 4.0,
+      "rating": 3.5,
       "stock": 8,
       "colors": [
         {"name": "Chestnut Brown", "code": "#954535"},
@@ -147,7 +146,7 @@
         "https://images.unsplash.com/photo-1579586337278-3f4262c6d0a8?w=800&auto=format&fit=crop",
         "https://images.unsplash.com/photo-1551816230-ef5deaed4a26?w=800&auto=format&fit=crop"
       ],
-      "rating": 4.3,
+      "rating": 2.3,
       "stock": 18,
       "colors": [
         {"name": "Onyx Black", "code": "#0A0A0A"},
@@ -168,15 +167,14 @@
       "category": "Accessories",
       "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop",
       "images": [
-        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1556306535-0f09a537f0d3?w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1551866442-64e75e911bc3?w=800&auto=format&fit=crop"
-      ],
+          "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&auto=format&fit=crop",
+          "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=800&auto=format&fit=crop"
+        ],
       "rating": 4.1,
       "stock": 30,
       "colors": [
-        {"name": "Classic Black", "code": "#0D0D0D"},
         {"name": "Tortoise Brown", "code": "#8B4513"},
         {"name": "Navy Blue", "code": "#000080"}
       ],

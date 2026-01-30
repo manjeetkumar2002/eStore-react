@@ -1,16 +1,17 @@
 import React from 'react'
 import { useFilterContext } from '../context/filterContext'
-
+import { useState } from 'react'
 const Sort = () => {
-    const {setGridView,setListView,grid_view,sorting, sorting_value} = useFilterContext()
+    const {setGridView,setListView,grid_view,sorting, sorting_value,searchProduct} = useFilterContext()
+    const [searchProductValue,setSearchProductValue] = useState("")
   return (
     <div className='row mt-4 mx-auto '>
         {/* col1 */}
         <div className='col-xl-4 col-sm-6'>
             <h6 className='mt-2'>Search Products</h6>
             <div className=" search-container rounded-3 border position-relative overflow-hidden" style={{"boxShadow":"2px 2px 10px rgba(0,0,0,0.1)"}}>
-               <input id="search-bar" className="border-0 bg-transparent p-2 fs-6 shadow-none form-control" type="text" placeholder="Search for products"/>
-                <div style={{"backgroundColor": "#0a4db8"}} className="text-white d-flex justify-content-center align-items-center fs-5  px-4 py-0  position-absolute top-0 bottom-0 end-0">
+               <input onChange={(e)=>setSearchProductValue(e.target.value)} id="search-bar" className="border-0 bg-transparent p-2 fs-6 shadow-none form-control" type="text" placeholder="Search for products"/>
+                <div onClick={()=>searchProduct(searchProductValue)}  style={{"backgroundColor": "#0a4db8"}} className="text-white d-flex justify-content-center align-items-center fs-5  px-4 py-0  position-absolute top-0 bottom-0 end-0">
                     <i className="bi bi-search"></i>
                 </div>                                 
             </div>

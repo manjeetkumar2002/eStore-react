@@ -3,7 +3,7 @@ import { useProductContext } from "../context/productContext";
 import { useParams } from "react-router";
 import PageNavigation from "./PageNavigation";
 import ProductsCarousel from "./ProductsCarousel";
-import Rating from "../Helper/Rating";
+import Star from "../Helper/Star";
 import { BiFontSize } from "react-icons/bi";
 import MyImage from "./MyImage";
 
@@ -56,7 +56,7 @@ const SingleProduct = () => {
                 {category}
               </p>
               <div className="d-flex">
-                <Rating /> (32)
+                <Star /> (32)
               </div>
             </div>
             <h2 className="fs-2 fw-semibold">{name}</h2>

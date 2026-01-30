@@ -1,10 +1,10 @@
 import React from 'react'
 import { NavLink } from 'react-router'
-import Rating from '../Helper/Rating'
+import Star from '../Helper/Star'
 import { useFilterContext } from '../context/filterContext'
 
 const ProductCard = ({product}) => {
-    const {name,description,image,price,id} = product
+    const {name,description,image,price,id,rating} = product
   return (
     <div className="col">
         <div className={ `w-100 card mt-3 `}>
@@ -22,7 +22,7 @@ const ProductCard = ({product}) => {
              
             </div>
             <h6 className="card-text fw-bold">${price}</h6>
-            <Rating/>
+            <Star stars={rating} />
           </div>
         </div>
     </div>

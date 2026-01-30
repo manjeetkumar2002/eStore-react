@@ -2,13 +2,19 @@ import ProductCard from "./ProductCard"
 import { useProductContext } from "../context/productContext"
 import { NavLink } from "react-router"
 import { useEffect, useState } from "react"
+import { useFilterContext } from "../context/filterContext"
 
 const Products = () => {
-  const {products,categories,isLoading} = useProductContext()
-  const [activeCategory,setActiveCategory] = useState(categories[0]?.name||"All")
-  console.log("products : ",products)
-
-  if (isLoading){
+  const {products,isLoading} = useProductContext()
+  const {getUniqueValue,updateFilterValue,filter_products} = useFilterContext()
+  const [activeCategory,setActiveCategory] = useState("All")
+  const [categories,setCategories] = useState([])
+  // console.log("products : ",products)
+  useEffect(()=>{
+    let result = getUniqueValue(products,"category")
+    setCategories([...result])
+  },[products]) 
+  if (isLoading){ 
     return (
       <h3>
         Loading....
@@ -23,9 +29,9 @@ const Products = () => {
       <div className="filter-buttons col-12 d-flex justify-content-center gap-1 gap-sm-3">
         {/* <button style={{backgroundColor: "#0a4db8"}} className="btn text-white rounded-5">All</button> */}
         {
-          categories.map((category,index)=>{
+          categories?.map((category,index)=>{
             return (
-               <button onClick={()=>setActiveCategory(category.name)} style={{backgroundColor:activeCategory==category.name?"#0a4db8":"", color:activeCategory==category.name?"white":""}} key={index} className={`btn btn-light rounded-5`}>{category.name}</button>
+               <button type="button" name="category" value={category} onClick={(e)=>{setActiveCategory(category),updateFilterValue(e)}} style={{backgroundColor:activeCategory==category?"#0a4db8":"", color:activeCategory==category?"white":""}} key={index} className={`btn btn-light rounded-5`}>{category}</button>
             )
           })
         }
@@ -33,14 +39,14 @@ const Products = () => {
     </div>
     <div className="row my-5 row-cols-1 row-cols-sm-2 row-cols-lg-4">
       {
-        products.map((product,index)=>(
+        filter_products.map((product,index)=>(
               <ProductCard key={index} product={product}/>
         ))
       }
     </div>
     <div className="row">
       <div className="col justify-content-center d-flex"> 
-        <button style={{backgroundColor: "#0a4db8"}} className="btn text-white rounded-5">View All Products <i className="bi bi-arrow-right-short"></i></button>
+        <button type="button" name="category" value={"All"} onClick={(e)=>{setActiveCategory("All"),updateFilterValue(e)}} style={{backgroundColor: "#0a4db8"}} className="btn text-white rounded-5">View All Products <i className="bi bi-arrow-right-short"></i></button>
       </div>
     </div>
   </div>

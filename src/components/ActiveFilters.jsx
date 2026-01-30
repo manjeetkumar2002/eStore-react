@@ -1,12 +1,17 @@
 import React from 'react'
+import { useFilterContext } from '../context/filterContext'
 
 const ActiveFilters = () => {
+    const {filters} = useFilterContext()
   return (
     <div className='border-top gap-3 mt-5 mx-3 py-4 d-flex flex-column flex-sm-row justify-content-between align-items-sm-center align-items-start         '>
         <div className='d-flex gap-3 align-items-end'>
             <h6>Active Filters :</h6>
             <div className='d-flex gap-3 align-items-center' >
-                <button  style={{color: "#0a4db8", backgroundColor: "#ebf2fa"}} className='btn-md border-0 rounded-4 px-4 py-1 fs-6 fw-semibold d-flex align-items-center gap-1'> Electronics  <i className="bi bi-x fs-5 fw-semibold"></i></button>
+                {
+                    filters.company!="All" ? <button  style={{color: "#0a4db8", backgroundColor: "#ebf2fa"}} className='btn-md border-0 rounded-4 px-4 py-1 fs-6 fw-semibold d-flex align-items-center gap-1'> {filters.company}  <i className="bi bi-x fs-5 fw-semibold"></i></button>:""
+                    // filters.category!="All" ? <button  style={{color: "#0a4db8", backgroundColor: "#ebf2fa"}} className='btn-md border-0 rounded-4 px-4 py-1 fs-6 fw-semibold d-flex align-items-center gap-1'> {filters.category}  <i className="bi bi-x fs-5 fw-semibold"></i></button>:""
+                }
             </div>
         </div>
         <div>

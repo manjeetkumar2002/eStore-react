@@ -26,7 +26,6 @@ const filterReducer = (state,action)=>{
             }
         }
         case "GET_SORT_PRODUCTS":{
-            console.log("Inside GET_SORT_PRODUCTS ");
             
             let newSortProducts;
             const {filter_products,sorting_value} = state
@@ -51,6 +50,55 @@ const filterReducer = (state,action)=>{
             return {
                 ...state,
                 filter_products:newSortProducts
+            }
+        }
+
+        case "SEARCH_PRODUCT":{
+            const {all_products} = state
+            const searchValue = action.payload
+            const filterData = all_products.filter((currEle)=> currEle.name.toLowerCase().includes(searchValue.toLowerCase()))
+            return {
+                ...state,
+                filter_products:filterData
+            }
+        }
+
+
+        case "UPDATE_FILTER_VALUE":{
+            const {name,value}=action.payload
+            return{
+                ...state,
+                filters:{
+                    ...state.filters,
+                    [name]:value
+                }
+            }
+        }
+
+        case "FILTER_PRODUCTS":{
+            const {category,company,colors} = state.filters
+            const {all_products} = state
+            let tempFilterProducts = [...all_products]
+
+            if(category!="All"){
+                tempFilterProducts = tempFilterProducts.filter((currEle)=>{
+                    return currEle.category === category
+                })
+            }
+            if(company!="All"){
+                tempFilterProducts = tempFilterProducts.filter((currEle)=>{
+                    return currEle.brand === company
+                })
+            }
+            if(colors!="All"){
+                console.log("color value:",colors)
+                tempFilterProducts = tempFilterProducts.filter((currEle)=>{
+                    return currEle.colors.some((color)=>color.code===colors)
+                })
+            }
+            return {
+                ...state,
+                filter_products:tempFilterProducts
             }
         }
         default : 

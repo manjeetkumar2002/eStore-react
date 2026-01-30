@@ -7,13 +7,20 @@ const initialState = {
     all_products:[],
     filter_products:[],
     grid_view:true,
-    sorting_value:"lowest"
+    sorting_value:"lowest",
+    filters:{
+        text:"",
+        category:"All",
+        company:"All",
+        colors:"All"
+    }
 }
 const FilterProvider = ({children}) =>{
+
     const {products} = useProductContext()
     const [state,dispatch] = useReducer(reducer,initialState)
 
-
+    
     const setGridView = ()=>{
         return dispatch({type:"SET_GRID_VIEW"})
     }
@@ -26,14 +33,40 @@ const FilterProvider = ({children}) =>{
         dispatch({type:"SET_SORT_VALUE",payload:userValue})
     }
 
-    useEffect(()=>{
-        dispatch({type:"GET_SORT_PRODUCTS"})
-    },[state.sorting_value])
+    const searchProduct = (value)=>{
+        dispatch({type:"SEARCH_PRODUCT",payload:value})
+    }
+
+    const updateFilterValue = (e) =>{
+        const name = e.target.name
+        const value = e.target.value
+        console.log(name,value)
+        dispatch({type:"UPDATE_FILTER_VALUE",payload:{name,value}})
+    }
+
+    const getUniqueValue = (products, attr) => {
+    // console.log(products);
+    let newVal = products.map((currEle) => {
+      return currEle[attr];
+    });
+
+    if (attr === "colors") {
+      newVal = newVal.flat();
+      newVal = newVal.map((currEle) => currEle.code);
+      // console.log("newVal",newVal)
+    }
+    return (newVal = ["All", ...new Set(newVal)]);
+  };
 
     useEffect(()=>{
-        dispatch({type:"LOAD_FILTER_PRODUCTS",payload:products.slice(0,4)})
+        dispatch({type:"FILTER_PRODUCTS"})
+        dispatch({type:"GET_SORT_PRODUCTS"})
+    },[state.sorting_value,state.filters])
+
+    useEffect(()=>{
+        dispatch({type:"LOAD_FILTER_PRODUCTS",payload:products})
     },[products])
-    return <filterContext.Provider value={{...state,setGridView,setListView,sorting}}>{children}</filterContext.Provider>
+    return <filterContext.Provider value={{...state,setGridView,setListView,sorting,searchProduct,updateFilterValue,getUniqueValue}}>{children}</filterContext.Provider>
 }
 
 const useFilterContext = ()=>{

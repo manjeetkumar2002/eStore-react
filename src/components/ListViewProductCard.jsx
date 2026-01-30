@@ -1,4 +1,4 @@
-import Rating from "../Helper/Rating";
+import Star from "../Helper/Star";
 const ListViewProductCard = ({ product }) => {
   const {name,description, image, price, id } = product;
   return (
@@ -15,7 +15,7 @@ const ListViewProductCard = ({ product }) => {
                 {description.slice(0,200)}
               </p>
                <h6 className="card-text fw-bold">${price}</h6>
-            <Rating/>
+            <Star/>
             <button  style={{ backgroundColor:product.stock>0? '#0a4db8':"",color:product.stock>0? 'white':"" }} className={`btn ${product.stock==0?"text-secondary bg-light":""} `}>
             <i className="bi bi-bag-plus"></i>
             {product.stock>0?" Add to Cart":" Sold Out"}
