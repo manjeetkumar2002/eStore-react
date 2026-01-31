@@ -1,25 +1,22 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useProductContext } from "../context/productContext";
 import { useParams } from "react-router";
 import PageNavigation from "./PageNavigation";
-import ProductsCarousel from "./ProductsCarousel";
 import Star from "../Helper/Star";
-import { BiFontSize } from "react-icons/bi";
 import MyImage from "./MyImage";
 import { useCartContext } from "../context/cartContext";
 
 const API = "http://localhost:3001";
+
 const SingleProduct = () => {
   const { singleProduct, getSingleProduct, isLoading } = useProductContext();
-  const {addToCart,cart} = useCartContext()
+  const { addToCart } = useCartContext();
   const {
     name,
     description,
     price,
     category,
-    image,
     images = [],
-    rating,
     stock,
     colors = [],
     sizes = [],
@@ -27,12 +24,21 @@ const SingleProduct = () => {
   const [currColor, setCurrColor] = useState(colors[0] || "");
   const [currSize, setCurrSize] = useState(sizes[0] || "");
   const [currQuantity, setCurrQuantity] = useState(1);
-  console.log(currColor,currQuantity,currSize)
   const { id } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
     getSingleProduct(API + `/products/${id}`);
   }, []);
+
+  useEffect(() => {
+  if (singleProduct && singleProduct.colors && singleProduct.colors.length > 0) {
+    setCurrColor(singleProduct.colors[0]);
+  }
+  if (singleProduct && singleProduct.sizes && singleProduct.sizes.length > 0) {
+    setCurrSize(singleProduct.sizes[0]);
+  }
+}, [singleProduct]);
+
 
   if (isLoading) {
     return <h3>Loading....</h3>;
@@ -95,19 +101,21 @@ const SingleProduct = () => {
                         }}
                         className="border-1 rounded-circle"
                       >
-                        {currColor.code == color.code ? (
-                          <i className="bi bi-check"></i>
+                        {currColor?.code == color.code ? (
+                          <i className="text-primary bi bi-check"></i>
                         ) : (
                           ""
                         )}
                       </button>
                       <span
                         className={
-                          currColor.code == color.code ? "d-inline-block" : "d-none"
+                          currColor?.code == color.code
+                            ? "d-inline-block"
+                            : "d-none"
                         }
                         style={{ fontSize: "14px" }}
                       >
-                        {currColor.name}
+                        {currColor?.name}
                       </span>
                     </div>
                   );
@@ -185,16 +193,33 @@ const SingleProduct = () => {
               style={{ borderBottom: "1px solid #E5E4E2" }}
             >
               <div className="col-sm-5">
-                <button
-                  onClick={()=>addToCart({id,quantity:currQuantity,color:currColor,size:currSize,image:image,price:price,name:name,stock:stock})}
+               {
+                singleProduct.stock>0?<button
+                  onClick={() =>
+                    addToCart({
+                      id: id,
+                      color: currColor,
+                      amount: currQuantity,
+                      size: currSize,
+                      product: singleProduct,
+                    })
+                  }
                   style={{ backgroundColor: "#0a4db8", color: "white" }}
                   className=" btn w-100"
                 >
                   {" "}
                   <i className="bi bi-bag-plus"></i> Add to Cart{" "}
-                </button>
+                </button>: <button   style={{ backgroundColor:singleProduct.stock>0? '#0a4db8':"",color:singleProduct.stock>0? 'white':"" }} className={`btn ${singleProduct.stock==0?"text-secondary bg-light border ":""}  w-100`}>
+                                    <i className="bi bi-bag-plus"></i>
+                                    {singleProduct.stock>0?" Add to Cart":" Sold Out"}
+                  </button>
+
+               } 
+                 
               </div>
-              <div className="col-sm-5">
+              {
+                singleProduct.stock>0&& <div className="col-sm-5">
+                
                 <button
                   className=" btn w-100 "
                   style={{ border: "1px solid #0a4db8", color: "#0a4db8" }}
@@ -203,6 +228,8 @@ const SingleProduct = () => {
                   <i className="bi bi-lightning-charge-fill"></i> Buy Now{" "}
                 </button>
               </div>
+              }
+             
               <div className="col-sm-2  pe-0">
                 <button className="btn btn-outline-danger">
                   <i className="bi bi-heart"></i>

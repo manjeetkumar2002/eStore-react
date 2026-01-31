@@ -25,23 +25,19 @@ const FilterProvider = ({ children }) => {
   const setListView = () => {
     return dispatch({ type: "SET_LIST_VIEW" });
   };
-
   const sorting = (e) => {
     const userValue = e.target.value;
     dispatch({ type: "SET_SORT_VALUE", payload: userValue });
   };
-
   const searchProduct = (value) => {
     dispatch({ type: "SEARCH_PRODUCT", payload: value });
   };
-
   const updateFilterValue = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     console.log(name, value);
     dispatch({ type: "UPDATE_FILTER_VALUE", payload: { name, value } });
   };
-
   const getUniqueValue = (products, attr) => {
     let newVal = products.map((currEle) => {
       return currEle[attr];
@@ -53,9 +49,8 @@ const FilterProvider = ({ children }) => {
     }
     return (newVal = ["All", ...new Set(newVal)]);
   };
-
   const clearFilters = () => {
-    dispatch({type:"CLEAR_FILTERS"})
+    dispatch({ type: "CLEAR_FILTERS" });
   };
 
   useEffect(() => {
@@ -65,6 +60,7 @@ const FilterProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: "LOAD_FILTER_PRODUCTS", payload: products });
+    dispatch({ type: "GET_SORT_PRODUCTS" });
   }, [products]);
   return (
     <filterContext.Provider

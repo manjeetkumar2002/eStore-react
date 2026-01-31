@@ -15,8 +15,7 @@ const FilterSection = () => {
   const categoryData = getUniqueValue(all_products, "category");
   const companyData = getUniqueValue(filter_products, "brand");
   const colorsData = getUniqueValue(filter_products, "colors");
-//   console.log("company", colorsData);
-  // console.log(categoryData);
+
 
   return (
     <div className="filter-section d-flex flex-column gap-4 shadow p-4 rounded-3">

@@ -1,18 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { BiBorderBottom } from 'react-icons/bi'
+import { useCartContext } from '../context/cartContext'
 const CartCard = ({data}) => {
-    const {name,image,price,quantity,color,size,stock} = data
-    const [currQuantity,setCurrQuantity] = useState(quantity)
-    console.log(stock)
-    const incrementQuantity = ()=>{
-        if(currQuantity<stock)
-        setCurrQuantity(currQuantity+1)
-    }
-    const decrementQuantity = ()=>{
-        if(currQuantity>1)
-        setCurrQuantity(currQuantity-1)
-    }
+    const {id,name,image,price,amount,color,size,stock} = data
+    const {incrementQuantity,decrementQuantity,removeCartItem} = useCartContext()
     return (
         <div className='row p-3 rounded-3 mt-2 cart-card'>
             <div className="col">
@@ -26,7 +18,7 @@ const CartCard = ({data}) => {
                             {color&&<span style={{fontSize:"0.89rem"}} className='border p-1 rounded-2 text-secondary' >Color : {color.name}</span>}
                            {size&&<span style={{fontSize:"0.89rem"}} className='border p-1 rounded-2 text-secondary' >Size : {size}</span>} 
                         </div>
-                        <button style={{fontSize:"0.89rem"}}  className='cart-remove-btn border-0 btn-sm bg-transparent mt-2'><i className="bi bi-trash"></i> Remove</button>
+                        <button onClick={()=>removeCartItem(id)} style={{fontSize:"0.89rem"}}  className='cart-remove-btn border-0 btn-sm bg-transparent mt-2'><i className="bi bi-trash"></i> Remove</button>
                     </div>
                 </div>
             </div>
@@ -38,7 +30,7 @@ const CartCard = ({data}) => {
                     <div className="d-inline-flex overflow-hidden border  rounded-5">
                 <button
                   className="p-1 bg-light bg-transparent  rounded-start"
-                  onClick={decrementQuantity}
+                  onClick={()=>decrementQuantity(id)}
                   style={{
                     width: "30px",
                     border: "none",
@@ -54,12 +46,12 @@ const CartCard = ({data}) => {
                     width: "20px",
                   }}
                 >
-                  {currQuantity}
+                  {amount}
                 </div>
 
                 <button
                   className="p-1 bg-light  bg-transparent rounded-end"
-                  onClick={incrementQuantity}
+                  onClick={()=>incrementQuantity(id)}
                   style={{
                     width: "30px",
                     border: "none",
@@ -71,7 +63,7 @@ const CartCard = ({data}) => {
               </div>
                 </div>
                 <div style={{borderBottom:"2px solid blue"}}>
-                    <h6 className='fs-6 fw-semibold'>${(price*quantity).toFixed(2)}</h6>
+                    <h6 className='fs-6 fw-semibold'>${(price*amount).toFixed(2)}</h6>
                 </div>
             </div>
         </div>

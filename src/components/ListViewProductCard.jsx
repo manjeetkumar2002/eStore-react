@@ -1,4 +1,5 @@
 import Star from "../Helper/Star";
+import { NavLink } from "react-router";
 const ListViewProductCard = ({ product }) => {
   const {name,description, image, price, id,rating } = product;
   return (
@@ -10,7 +11,9 @@ const ListViewProductCard = ({ product }) => {
           </div>
           <div className="col-sm-8">
             <div className="card-body">
-              <h5 className="card-title">{name}</h5>
+              <NavLink className={"text-decoration-none"} to={`/singleProduct/${id}`}>
+              <h5 className="card-title text-dark">{name}</h5>
+              </NavLink>
               <p className="card-text">
                 {description.slice(0,200)}
               </p>
@@ -18,10 +21,6 @@ const ListViewProductCard = ({ product }) => {
                <div className="my-3">
             <Star stars={rating}/>
                </div>
-            <button  style={{ backgroundColor:product.stock>0? '#0a4db8':"",color:product.stock>0? 'white':"" }} className={`btn ${product.stock==0?"text-secondary bg-light":""} `}>
-            <i className="bi bi-bag-plus"></i>
-            {product.stock>0?" Add to Cart":" Sold Out"}
-            </button>
             </div>
           </div>
         </div>
