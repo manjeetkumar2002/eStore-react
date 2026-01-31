@@ -5,6 +5,7 @@ import PageNavigation from "./PageNavigation";
 import Star from "../Helper/Star";
 import MyImage from "./MyImage";
 import { useCartContext } from "../context/cartContext";
+import { useTheme } from "../context/themeContext";
 
 const API = "http://localhost:3001";
 
@@ -21,6 +22,7 @@ const SingleProduct = () => {
     colors = [],
     sizes = [],
   } = singleProduct;
+  const theme = useTheme()
   const [currColor, setCurrColor] = useState(colors[0] || "");
   const [currSize, setCurrSize] = useState(sizes[0] || "");
   const [currQuantity, setCurrQuantity] = useState(1);
@@ -134,7 +136,7 @@ const SingleProduct = () => {
                         key={`size-${index}-${size}`}
                         style={{
                           marginRight: "10px",
-                          backgroundColor: size == currSize ? "#0a4db8" : "",
+                          backgroundColor: size == currSize ? theme.primary : "",
                           color: size == currSize ? "white" : "",
                           width: "30px",
                           height: "30px",
@@ -190,7 +192,7 @@ const SingleProduct = () => {
             {/* buttons */}
             <div
               className="row mt-3 d-flex flex-sm-row flex-column gap-sm-0 gap-3  py-3"
-              style={{ borderBottom: "1px solid #E5E4E2" }}
+              style={{ borderBottom: `1px solid ${theme.border}` }}
             >
               <div className="col-sm-5">
                {
@@ -204,12 +206,12 @@ const SingleProduct = () => {
                       product: singleProduct,
                     })
                   }
-                  style={{ backgroundColor: "#0a4db8", color: "white" }}
+                  style={{ backgroundColor: theme.primary, color: "white" }}
                   className=" btn w-100"
                 >
                   {" "}
                   <i className="bi bi-bag-plus"></i> Add to Cart{" "}
-                </button>: <button   style={{ backgroundColor:singleProduct.stock>0? '#0a4db8':"",color:singleProduct.stock>0? 'white':"" }} className={`btn ${singleProduct.stock==0?"text-secondary bg-light border ":""}  w-100`}>
+                </button>: <button   style={{ backgroundColor:singleProduct.stock>0?  theme.primary:"",color:singleProduct.stock>0? 'white':"" }} className={`btn ${singleProduct.stock==0?"text-secondary bg-light border ":""}  w-100`}>
                                     <i className="bi bi-bag-plus"></i>
                                     {singleProduct.stock>0?" Add to Cart":" Sold Out"}
                   </button>
@@ -222,7 +224,7 @@ const SingleProduct = () => {
                 
                 <button
                   className=" btn w-100 "
-                  style={{ border: "1px solid #0a4db8", color: "#0a4db8" }}
+                  style={{ border: `1px solid ${ theme.primary}`, color: theme.primary }}
                 >
                   {" "}
                   <i className="bi bi-lightning-charge-fill"></i> Buy Now{" "}
@@ -240,21 +242,21 @@ const SingleProduct = () => {
             {/* features */}
             <div className="d-flex flex flex-column mt-5 gap-3 fs-6">
               <div>
-                <i className="bi bi-truck" style={{ color: "#0a4db8" }}></i>
+                <i className="bi bi-truck" style={{ color: theme.primary }}></i>
                 <span className=" ms-2">Free shipping on orders over $50</span>
               </div>
 
               <div>
                 <i
                   className="bi bi-arrow-repeat"
-                  style={{ color: "#0a4db8" }}
+                  style={{ color: theme.primary}}
                 ></i>
                 <span className=" ms-2">30-day return policy</span>
               </div>
               <div>
                 <i
                   className="bi bi-shield-check"
-                  style={{ color: "#0a4db8" }}
+                  style={{ color: theme.primary}}
                 ></i>
                 <span className=" ms-2">2-year warranty</span>
               </div>

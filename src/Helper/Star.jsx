@@ -1,6 +1,5 @@
 import { FaStar, FaStarHalfAlt } from "react-icons/fa";
 import { AiOutlineStar } from "react-icons/ai";
-import styled from "styled-components";
 
 const Star = ({ stars, reviews }) => {
   const ratingStar = Array.from({ length: 5 }, (elem, index) => {
@@ -8,46 +7,22 @@ const Star = ({ stars, reviews }) => {
     return (
       <span key={index}>
         {stars >= index + 1 ? (
-          <FaStar className="icon" />
+          <FaStar className="text-warning fs-6" />
         ) : stars >= number ? (
-          <FaStarHalfAlt className="icon" />
+          <FaStarHalfAlt className="text-warning fs-6" />
         ) : (
-          <AiOutlineStar className="icon" />
+          <AiOutlineStar className="text-warning fs-6" />
         )}
       </span>
     );
   });
 
   return (
-    <Wrapper>
-      <div className="icon-style">
-        {ratingStar}
-        {/* <p>({reviews} customer reviews)</p> */}
-      </div>
-    </Wrapper>
+    <div className="icon-style d-flex gap-2 align-items-center justify-content-start">
+      {ratingStar}
+      {/* <p className="mb-0 ps-3">({reviews} customer reviews)</p> */}
+    </div>
   );
 };
-
-const Wrapper = styled.section`
-  .icon-style {
-    display: flex;
-    gap: 0.2rem;
-    align-items: center;
-    justify-content: flex-start;
-
-    .icon {
-      font-size: 1rem;
-      color: orange;
-    }
-
-    .empty-icon {
-      font-size: 2.6rem;
-    }
-    p {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-  }
-`;
 
 export default Star;

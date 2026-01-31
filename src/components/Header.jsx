@@ -1,10 +1,12 @@
 import { NavLink } from "react-router"
 import { useState } from "react"
 import { useCartContext } from "../context/cartContext"
+import { useTheme } from "../context/themeContext"
 const Header = () => {
     const [showMenu,setShowMenu] = useState(false)
     const [showSearchBar,setshowSearchBar] = useState(false)
     const {total_items} = useCartContext()
+    const theme = useTheme()
     return (
     <div id="header-section" style={{position: "relative", zIndex: 1000}}>
         <div className="container-lg overflow-hidden">
@@ -15,7 +17,7 @@ const Header = () => {
                         <div className={`${showSearchBar?"order-4 order-lg-2 col-lg-4 py-3 d-block":"col-4 d-lg-block d-none"}`}>
                             <div className=" search-container rounded-5  p-1 position-relative overflow-hidden" style={{"boxShadow":"2px 2px 10px rgba(0,0,0,0.1)"}}>
                                 <input id="search-bar" className="border-0 bg-transparent fs-6 shadow-none form-control" type="text" placeholder="Search for products"/>
-                                <div style={{"backgroundColor": "#0a4db8"}} className="text-white d-flex justify-content-center align-items-center fs-5 m-1 px-4 py-0 rounded-5 position-absolute top-0 bottom-0 end-0">
+                                <div style={{"backgroundColor": theme.primary}} className="text-white d-flex justify-content-center align-items-center fs-5 m-1 px-4 py-0 rounded-5 position-absolute top-0 bottom-0 end-0">
                                     <i className="bi bi-search"></i>
                                 </div>
                             </div>
@@ -26,11 +28,11 @@ const Header = () => {
                                 <i className="bi bi-person"></i>
                                 <div className="position-relative d-none d-sm-block ">
                                     <i className="bi bi-heart"></i>
-                                    <span className="position-absolute h-50 d-flex justify-content-center align-items-center  p-1 rounded-circle text-white" style={{"fontSize":"13px", backgroundColor: "#0a4db8", top:"-10px", right:"-14px"}} >0</span>
+                                    <span className="position-absolute h-50 d-flex justify-content-center align-items-center  p-1 rounded-circle text-white" style={{"fontSize":"13px", backgroundColor: theme.primary, top:"-10px", right:"-14px"}} >0</span>
                                 </div>
                                 <NavLink to="/cart" className="text-dark position-relative">
                                     <i className="bi bi-cart"></i>
-                                    <span className="position-absolute h-50 d-flex justify-content-center align-items-center  p-1 rounded-circle text-white" style={{"fontSize":"13px", backgroundColor: "#0a4db8", top:"-10px", right:"-12px"}} >{total_items}</span>
+                                    <span className="position-absolute h-50 d-flex justify-content-center align-items-center  p-1 rounded-circle text-white" style={{"fontSize":"13px", backgroundColor: theme.primary, top:"-10px", right:"-12px"}} >{total_items}</span>
                                 </NavLink> 
                                 <i onClick={()=>setShowMenu(!showMenu)} className="bi bi-list d-block d-lg-none"></i>
                             </div>

@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useTheme } from "../context/themeContext";
 
 const MyImage = ({ images = [] }) => {
   const [Mainimage, setMainimage] = useState(images[0] || ""); // ✅ Default empty string
-
+  const theme = useTheme()
   if (images.length === 0) {
     return <div>No images available</div>;
   }
@@ -57,11 +58,11 @@ const MyImage = ({ images = [] }) => {
         >
           <i
             className=" bi bi-chevron-left border-0 fs-3 fw-semibold rounded-circle px-1 py-0 shadow-sm bg-white"
-            style={{ color: "#0a4db8", cursor: "pointer" }}
+            style={{ color:theme.primary , cursor: "pointer" }}
           ></i>
           <i
             className=" bi bi-chevron-right border-0 fs-3 fw-semibold rounded-circle px-1 py-0 shadow-sm bg-white float-end"
-            style={{ color: "#0a4db8", cursor: "pointer" }}
+            style={{ color: theme.primary, cursor: "pointer" }}
           ></i>
         </div>
       </div>

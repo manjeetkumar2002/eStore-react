@@ -3,12 +3,14 @@ import { useProductContext } from "../context/productContext"
 import { NavLink } from "react-router"
 import { useEffect, useState } from "react"
 import { useFilterContext } from "../context/filterContext"
+import { useTheme } from "../context/themeContext"
 
 const Products = () => {
   const {products,isLoading} = useProductContext()
   const {getUniqueValue,updateFilterValue,filter_products} = useFilterContext()
   const [activeCategory,setActiveCategory] = useState("All")
   const [categories,setCategories] = useState([])
+  const theme = useTheme()
   // console.log("products : ",products)
   useEffect(()=>{
     let result = getUniqueValue(products,"category")
@@ -31,7 +33,7 @@ const Products = () => {
         {
           categories?.map((category,index)=>{
             return (
-               <button type="button" name="category" value={category} onClick={(e)=>{setActiveCategory(category),updateFilterValue(e)}} style={{backgroundColor:activeCategory==category?"#0a4db8":"", color:activeCategory==category?"white":""}} key={index} className={`btn btn-light rounded-5`}>{category}</button>
+               <button type="button" name="category" value={category} onClick={(e)=>{setActiveCategory(category),updateFilterValue(e)}} style={{backgroundColor:activeCategory==category?theme.primary:"", color:activeCategory==category?"white":""}} key={index} className={`btn btn-light rounded-5`}>{category}</button>
             )
           })
         }
@@ -46,7 +48,7 @@ const Products = () => {
     </div>
     <div className="row">
       <div className="col justify-content-center d-flex"> 
-        <button type="button" name="category" value={"All"} onClick={(e)=>{setActiveCategory("All"),updateFilterValue(e)}} style={{backgroundColor: "#0a4db8"}} className="btn text-white rounded-5">View All Products <i className="bi bi-arrow-right-short"></i></button>
+        <button type="button" name="category" value={"All"} onClick={(e)=>{setActiveCategory("All"),updateFilterValue(e)}} style={{backgroundColor: theme.primary}} className="btn text-white rounded-5">View All Products <i className="bi bi-arrow-right-short"></i></button>
       </div>
     </div>
   </div>

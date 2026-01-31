@@ -1,6 +1,7 @@
 import React from "react";
 import { useFilterContext } from "../context/filterContext";
 import { useState } from "react";
+import { useTheme } from "../context/themeContext";
 const Sort = () => {
   const {
     setGridView,
@@ -10,6 +11,7 @@ const Sort = () => {
     sorting_value,
     searchProduct,
   } = useFilterContext();
+  const theme = useTheme()
   return (
     <div className="row mt-4 mx-auto ">
       {/* col1 */}
@@ -17,7 +19,7 @@ const Sort = () => {
         <h6 className="mt-2">Search Products</h6>
         <div
           className=" search-container rounded-3 border position-relative overflow-hidden"
-          style={{ boxShadow: "2px 2px 10px rgba(0,0,0,0.1)" }}
+          style={{ boxShadow: `2px 2px 10px ${theme.shadow}` }}
         >
           <input
             onChange={(e) => {
@@ -102,7 +104,7 @@ const Sort = () => {
           <button
             onClick={setGridView}
             style={{
-              backgroundColor: grid_view ? "#0a4db8" : "transparent",
+              backgroundColor: grid_view ? theme.primary : "transparent",
               color: grid_view ? "white" : "black",
             }}
             className="px-2 py-1 border  fs-5 rounded-2"
@@ -112,7 +114,7 @@ const Sort = () => {
           <button
             onClick={setListView}
             style={{
-              backgroundColor: !grid_view ? "#0a4db8" : "transparent",
+              backgroundColor: !grid_view ? theme.primary  : "transparent",
               color: !grid_view ? "white" : "black",
             }}
             className="px-2 py-1 border  fs-5 rounded-2"

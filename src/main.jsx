@@ -4,14 +4,19 @@ import App from "./App.jsx";
 import { AppProvider } from "./context/productContext.jsx";
 import { FilterProvider } from "./context/filterContext.jsx";
 import { CartProvider } from "./context/cartContext.jsx";
+import { ThemeProvider } from "./context/themeContext.jsx";
+
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AppProvider>
+    <ThemeProvider>
+      <AppProvider>
       <CartProvider>
         <FilterProvider>
-          <App />
+          <App  />
         </FilterProvider>
       </CartProvider>
     </AppProvider>
-  </StrictMode>,
+    </ThemeProvider>
+  </StrictMode>
 );
