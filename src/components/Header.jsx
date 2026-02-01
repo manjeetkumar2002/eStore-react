@@ -44,13 +44,13 @@ const Header = () => {
                     <i onClick={()=>setShowMenu(!showMenu)} className="bi bi-x-lg fs-4 text-white fw-bold"></i>
                     </div>
                     <ul id="nav-menu" style={{minHeight:showMenu?"93%":"" }} className={`${showMenu?"d-flex d-lg-none  flex-column bg-white fs-6 gap-4 p-4 rounded-2 align-items-start":"list-unstyled d-flex fs-6 gap-3 mb-0 flex-wrap"}`}>
-                        <NavLink to="/" className="text-decoration-none text-dark">Home</NavLink>
-                        <NavLink to="/about" className="text-decoration-none text-dark">About</NavLink>
-                        <NavLink to="/category" className="text-decoration-none text-dark">Category</NavLink>
-                        <NavLink to="/productDetails" className="text-decoration-none text-dark">Product Details</NavLink>
-                        <NavLink to="/cart" className="text-decoration-none text-dark">Cart</NavLink>
-                        <NavLink to="/checkout" className="text-decoration-none text-dark">Checkout</NavLink>
-                        <div className="dropdown">
+                        <NavLink  onClick={()=>setShowMenu(false)} to="/" className="text-decoration-none text-dark">Home</NavLink>
+                        <NavLink onClick={()=>setShowMenu(false)} to="/about" className="text-decoration-none text-dark">About</NavLink>
+                        <NavLink onClick={()=>setShowMenu(false)} to="/category" className="text-decoration-none text-dark">Category</NavLink>
+                        {/* <NavLink to="/productDetails" className="text-decoration-none text-dark">Product Details</NavLink> */}
+                        <NavLink onClick={()=>setShowMenu(false)} to="/cart" className="text-decoration-none text-dark">Cart</NavLink>
+                        {/* <NavLink to="/checkout" className="text-decoration-none text-dark">Checkout</NavLink> */}
+                        {/* <div className="dropdown">
                             <a className="dropdown-toggle text-decoration-none text-dark" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Dropdown
                             </a>
@@ -59,8 +59,8 @@ const Header = () => {
                                 <li><a className="dropdown-item" href="#">Another action</a></li>
                                 <li><a className="dropdown-item" href="#">Something else here</a></li>
                             </ul>
-                        </div>
-                        <NavLink to="/contact" className="text-decoration-none text-dark">Contact</NavLink>
+                        </div> */}
+                        <NavLink onClick={()=>setShowMenu(false)} to="/contact" className="text-decoration-none text-dark">Contact</NavLink>
                     </ul>
                 </div>
         </div>

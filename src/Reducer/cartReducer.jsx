@@ -2,12 +2,13 @@ const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_ITEM_CART": {
       let cartItem;
-      const { id, amount, color, size, product } = action.payload;
+      const { id, amount, color, size, product,discount } = action.payload;
       cartItem = {
         id: id + color.code,
         amount,
         color,
         size,
+        discount:product.discount,
         name: product.name,
         image: product.images[0],
         price: product.price,
@@ -25,7 +26,7 @@ const cartReducer = (state, action) => {
         return state;
       }
 
-      console.log("Add to cart", cartItem);
+      // console.log("Add to cart", cartItem);
       return {
         ...state,
         cart: [...state.cart, cartItem],
@@ -91,8 +92,20 @@ const cartReducer = (state, action) => {
     case "UPDATE_CART_SIZE": {
       return {
         ...state,
-        total_items: state.cart.length,
+        total_items: state.cart?.length,
       };
+    }
+    case "UPDATE_CART_TOTAL_AMOUNT":{
+        let res = 0;
+        for(let item of state.cart){
+            const {price,discount,amount} = item
+            let discountPrice = price - (price * discount/100)
+            res += (discountPrice * amount)
+        }
+        return {
+          ...state,
+          total_amount:res
+        }
     }
   }
 };

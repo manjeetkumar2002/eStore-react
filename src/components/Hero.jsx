@@ -15,7 +15,7 @@ const Hero = () => {
         <p className="fs-6 my-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo. Vestibulum ante ipsum primis in faucibus.</p>
         <div className="fw-semibold d-flex flex-sm-row flex-column gap-3 justify-content-md-start justify-content-center">
           <NavLink to="/category">
-          <button className="btn py-2 text-white" style={{backgroundColor: theme.primary}}>Shop Now <i className="bi bi-arrow-right-short"></i></button>
+          <button className="d-block btn py-2 text-white" style={{backgroundColor: theme.primary,width:"100%"}}>Shop Now <i className="bi bi-arrow-right-short"></i></button>
           </NavLink>
           <button className="btn py-2 btn-outline-dark">View Collection</button>
         </div>

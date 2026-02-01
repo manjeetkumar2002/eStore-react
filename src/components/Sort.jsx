@@ -10,6 +10,7 @@ const Sort = () => {
     sorting,
     sorting_value,
     searchProduct,
+    filter_products
   } = useFilterContext();
   const theme = useTheme()
   return (
@@ -33,7 +34,7 @@ const Sort = () => {
         </div>
       </div>
       {/* col2 */}
-      <div className="col-xl-2 col-sm-6">
+      {/* <div className="col-xl-2 col-sm-6">
         <h6 className="mt-2">Price Range</h6>
         <div className="dropdown">
           <button
@@ -59,7 +60,7 @@ const Sort = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
       {/* col3 */}
       <div className="col-xl-2 col-sm-6">
         <h6 className="mt-2">Sort by</h6>
@@ -124,32 +125,9 @@ const Sort = () => {
         </div>
       </div>
       {/* col5 */}
-      <div className="col-xl-2 col-sm-4 col d-flex  align-items-end">
-        <div className="dropdown">
-          <button
-            style={{ width: "100%" }}
-            className="p-2 border bg-white rounded-2 dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            12 per page
-          </button>
-          <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
-          </div>
-        </div>
-      </div>
+      {/* <div className="col-xl-2 col-sm-4 col d-flex  align-items-end">
+       <button disabled className="btn btn-outline-dark">  {filter_products.length} Products </button>
+      </div> */}
     </div>
   );
 };

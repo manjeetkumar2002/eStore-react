@@ -43,7 +43,7 @@ const FilterSection = () => {
         <h3 className="mb-4 fs-5">Company</h3>
         <div>
           <form action="#">
-            <select value={company}  style={{width:"200px"}} name="company" id="company" onChange={updateFilterValue}>
+            <select value={company}  style={{width:"100%",maxWidth:"200px"}} name="company" id="company" onChange={updateFilterValue}>
               {companyData.map((curElem, index) => {
                 return (
                   <option key={index} name="company" value={curElem}>

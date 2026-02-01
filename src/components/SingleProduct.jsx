@@ -7,7 +7,7 @@ import MyImage from "./MyImage";
 import { useCartContext } from "../context/cartContext";
 import { useTheme } from "../context/themeContext";
 
-const API = "http://localhost:3001";
+const API = "https://api-node-ecom-r9am.onrender.com/api";
 
 const SingleProduct = () => {
   const { singleProduct, getSingleProduct, isLoading } = useProductContext();
@@ -21,6 +21,8 @@ const SingleProduct = () => {
     stock,
     colors = [],
     sizes = [],
+    rating,
+    discount
   } = singleProduct;
   const theme = useTheme()
   const [currColor, setCurrColor] = useState(colors[0] || "");
@@ -67,21 +69,22 @@ const SingleProduct = () => {
                 {category}
               </p>
               <div className="d-flex">
-                <Star /> (32)
+                 <Star stars={rating}/>
               </div>
             </div>
             <h2 className="fs-2 fw-semibold">{name}</h2>
             <div className="d-flex gap-3 align-items-center">
-              <p className="fs-4 fw-bold mb-0">${price}</p>
+              <p className="fs-4 fw-bold mb-0">${(price - (price * (discount/100))).toFixed(2) }</p>
               <del className="text-secondary fs-5 fw-normal">
-                ${price + 200}
+                ${price}
               </del>
-              <span
+              {discount>0&& <span
                 className="bg-danger p-1 text-white rounded-2 my-4"
                 style={{ fontSize: "12px" }}
               >
-                -17%
-              </span>
+                -{discount}%
+              </span>}
+             
             </div>
             {/* description */}
             <p>{description}</p>
@@ -231,7 +234,6 @@ const SingleProduct = () => {
                 </button>
               </div>
               }
-             
               <div className="col-sm-2  pe-0">
                 <button className="btn btn-outline-danger">
                   <i className="bi bi-heart"></i>

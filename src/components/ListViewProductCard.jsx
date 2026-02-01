@@ -4,7 +4,7 @@ const ListViewProductCard = ({ product }) => {
   const {name,description, image, price, id,rating } = product;
   return (
     <div className="col">
-      <div className="card mb-3">
+      <div style={{transform:"scale(1)"}} className="card mb-3">
         <div className="row g-0">
           <div className="col-sm-4">
             <img src={image} class="img-fluid rounded-start" style={{maxHeight:"260px",height:"100%",objectFit:"cover",width:"100%"}} alt="..." />

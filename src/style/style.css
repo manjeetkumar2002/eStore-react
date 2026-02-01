@@ -72,14 +72,14 @@ button:hover{
 .featured-product:hover  .bi-heart,.featured-product:hover  .bi-eye,.featured-product:hover .bi-arrow-left-right{
     display: block;
 }
-.bi-heart,.bi-eye,.bi-arrow-left-right{
+.card .bi-heart,.card .bi-eye,.card .bi-arrow-left-right{
     display: none;
     background-color: var(--body-background);
     color:var(--text);
     transition: all 0.1s ease-in;
     cursor: pointer;
 }
-.bi-heart:hover,.bi-eye:hover,.bi-arrow-left-right:hover{
+.card .bi-heart:hover,.card .bi-eye:hover,.card .bi-arrow-left-right:hover{
     background-color: var(--primary);
     color:white;
     transform: scale(1.3);
